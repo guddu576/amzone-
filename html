@@ -1,1 +1,1657 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guddu Finds | Amazon Affiliate Store</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#fff;
+color:#171717
+}
+
+button,input,textarea,select{font:inherit}
+
+button{cursor:pointer;border:0}
+
+:root{
+--orange:#ff9900;
+--dark:#111;
+--light:#f7f7f7;
+--border:#e5e5e5;
+--muted:#707070;
+--green:#16833b;
+}
+
+.top-strip{
+background:#111;
+color:white;
+text-align:center;
+padding:9px;
+font-size:13px;
+}
+
+.header{
+height:76px;
+display:flex;
+align-items:center;
+gap:30px;
+padding:0 5%;
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+background:white;
+z-index:100;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+white-space:nowrap;
+}
+
+.logo span{color:var(--orange)}
+
+.search{
+flex:1;
+max-width:600px;
+position:relative;
+}
+
+.search input{
+width:100%;
+padding:13px 45px 13px 18px;
+border:1px solid #ccc;
+border-radius:30px;
+outline:none;
+background:#fafafa;
+}
+
+.search button{
+position:absolute;
+right:5px;
+top:5px;
+width:38px;
+height:38px;
+border-radius:50%;
+background:var(--orange);
+}
+
+.header-actions{
+margin-left:auto;
+display:flex;
+gap:8px;
+align-items:center;
+}
+
+.head-btn{
+background:white;
+font-size:20px;
+padding:8px;
+}
+
+.social-btn{
+text-decoration:none;
+font-size:14px;
+font-weight:bold;
+padding:9px 12px;
+border-radius:7px;
+color:white;
+background:#111;
+}
+
+.nav{
+display:flex;
+gap:25px;
+align-items:center;
+padding:13px 5%;
+border-bottom:1px solid var(--border);
+overflow:auto;
+white-space:nowrap;
+}
+
+.nav a{
+color:#222;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+}
+
+.nav a:hover{color:#d97700}
+
+.hero{
+min-height:440px;
+background:linear-gradient(110deg,#fff4df,#fff);
+display:flex;
+align-items:center;
+padding:55px 7%;
+}
+
+.hero-content{
+max-width:650px;
+}
+
+.hero small{
+color:#b66a00;
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:2px;
+}
+
+.hero h1{
+font-size:52px;
+line-height:1.05;
+margin:15px 0;
+}
+
+.hero h1 span{color:#e88700}
+
+.hero p{
+color:#666;
+font-size:18px;
+line-height:1.6;
+}
+
+.hero-buttons{
+display:flex;
+gap:12px;
+margin-top:25px;
+}
+
+.primary{
+background:#ff9900;
+color:#111;
+padding:14px 23px;
+border-radius:7px;
+font-weight:bold;
+}
+
+.secondary{
+background:#111;
+color:white;
+padding:14px 23px;
+border-radius:7px;
+font-weight:bold;
+}
+
+.container{
+width:90%;
+max-width:1250px;
+margin:auto;
+}
+
+.section{
+padding:55px 0;
+}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin-bottom:25px;
+}
+
+.section-head h2{
+font-size:28px;
+}
+
+.section-head p{
+color:var(--muted);
+margin-top:5px;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:15px;
+}
+
+.category{
+border:1px solid var(--border);
+border-radius:12px;
+padding:25px 10px;
+text-align:center;
+background:white;
+transition:.2s;
+}
+
+.category:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 25px #0000000d;
+}
+
+.category-icon{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.product{
+border:1px solid var(--border);
+border-radius:12px;
+overflow:hidden;
+background:white;
+transition:.2s;
+position:relative;
+}
+
+.product:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 30px #00000012;
+}
+
+.product-img{
+height:240px;
+background:#f6f6f6;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:80px;
+position:relative;
+overflow:hidden;
+}
+
+.product-img img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.badge{
+position:absolute;
+left:12px;
+top:12px;
+background:#111;
+color:white;
+padding:6px 9px;
+border-radius:5px;
+font-size:11px;
+font-weight:bold;
+z-index:2;
+}
+
+.badge.sale{background:#e53935}
+
+.wish{
+position:absolute;
+right:12px;
+top:12px;
+width:35px;
+height:35px;
+border-radius:50%;
+background:white;
+font-size:18px;
+box-shadow:0 2px 8px #0002;
+z-index:3;
+}
+
+.product-body{
+padding:16px;
+}
+
+.stars{
+color:#f59e0b;
+font-size:13px;
+margin-bottom:8px;
+}
+
+.product h3{
+font-size:16px;
+line-height:1.4;
+min-height:45px;
+}
+
+.product p{
+color:#777;
+font-size:13px;
+margin:8px 0;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+margin:12px 0;
+}
+
+.old-price{
+color:#999;
+text-decoration:line-through;
+font-size:13px;
+margin-left:5px;
+}
+
+.amazon{
+width:100%;
+background:#ff9900;
+color:#111;
+padding:12px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.feature{
+background:#111;
+color:white;
+border-radius:15px;
+padding:45px;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:30px;
+}
+
+.feature h2{
+font-size:35px;
+margin-bottom:15px;
+}
+
+.feature p{
+color:#ccc;
+line-height:1.6;
+}
+
+.feature-product{
+background:#222;
+min-height:250px;
+border-radius:12px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:110px;
+}
+
+.deal{
+background:#fff4df;
+border-radius:15px;
+padding:35px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:20px;
+}
+
+.newsletter{
+background:#f5f5f5;
+text-align:center;
+padding:55px 20px;
+}
+
+.newsletter h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.newsletter p{
+color:#666;
+margin-bottom:20px;
+}
+
+.newsletter-form{
+display:flex;
+max-width:500px;
+margin:auto;
+}
+
+.newsletter-form input{
+flex:1;
+padding:14px;
+border:1px solid #ccc;
+border-radius:6px 0 0 6px;
+}
+
+.newsletter-form button{
+background:#111;
+color:white;
+padding:0 20px;
+border-radius:0 6px 6px 0;
+}
+
+footer{
+background:#111;
+color:white;
+padding:50px 5% 25px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:40px;
+}
+
+footer h3{
+margin-bottom:15px;
+}
+
+footer p,footer a{
+color:#aaa;
+font-size:13px;
+line-height:2;
+text-decoration:none;
+display:block;
+}
+
+.social-footer{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.social-footer a{
+background:#222;
+padding:8px 12px;
+border-radius:6px;
+color:white;
+}
+
+.copyright{
+border-top:1px solid #333;
+margin-top:35px;
+padding-top:20px;
+color:#777;
+font-size:12px;
+}
+
+.drawer{
+position:fixed;
+right:-650px;
+top:0;
+width:620px;
+max-width:95%;
+height:100%;
+background:white;
+z-index:500;
+box-shadow:-10px 0 40px #0003;
+transition:.3s;
+padding:25px;
+overflow:auto;
+}
+
+.drawer.open{right:0}
+
+.drawer-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border);
+padding-bottom:15px;
+margin-bottom:20px;
+}
+
+.close{
+background:#f2f2f2;
+width:35px;
+height:35px;
+border-radius:50%;
+}
+
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:#0007;
+z-index:400;
+}
+
+.overlay.show{display:block}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:7px;
+}
+
+.form-group.full{
+grid-column:1/-1;
+}
+
+.form-group label{
+font-size:13px;
+font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+width:100%;
+padding:11px;
+border:1px solid #ddd;
+border-radius:7px;
+outline:none;
+background:white;
+}
+
+.form-group textarea{
+min-height:100px;
+resize:vertical;
+}
+
+.checkbox-row{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+.checkbox-row label{
+font-size:13px;
+display:flex;
+gap:6px;
+align-items:center;
+}
+
+.form-actions{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:20px;
+padding-top:20px;
+border-top:1px solid #eee;
+}
+
+.admin-title{
+background:#111;
+color:white;
+padding:18px;
+border-radius:9px;
+margin-bottom:20px;
+}
+
+.admin-title span{
+color:#ff9900;
+}
+
+.empty{
+text-align:center;
+color:#888;
+padding:40px 10px;
+}
+
+@media(max-width:1050px){
+.products{grid-template-columns:repeat(3,1fr)}
+.categories{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:750px){
+.header{
+padding:0 15px;
+gap:10px;
+}
+
+.logo{font-size:19px}
+.search{display:none}
+.social-btn{display:none}
+.nav{padding:12px 15px}
+.hero{padding:45px 20px}
+.hero h1{font-size:38px}
+.container{width:92%}
+.products{grid-template-columns:repeat(2,1fr);gap:10px}
+.product-img{height:170px}
+.categories{grid-template-columns:repeat(3,1fr);gap:8px}
+.feature{grid-template-columns:1fr;padding:25px}
+.deal{display:block}
+.footer-grid{grid-template-columns:1fr 1fr}
+.form-grid{grid-template-columns:1fr}
+.form-group.full{grid-column:auto}
+}
+
+@media(max-width:450px){
+.products{grid-template-columns:1fr 1fr}
+.product-img{height:145px}
+.product-body{padding:11px}
+.product h3{font-size:14px}
+.price{font-size:17px}
+.categories{grid-template-columns:repeat(2,1fr)}
+.hero h1{font-size:34px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-strip">
+🔥 Guddu Finds — Discover useful products from Amazon
+</div>
+
+<header class="header">
+
+<div class="logo">
+Guddu<span>Finds</span>
+</div>
+
+<div class="search">
+<input id="searchInput"
+placeholder="Search products..."
+oninput="searchProducts()">
+<button>🔎</button>
+</div>
+
+<div class="header-actions">
+
+<a class="social-btn"
+href="https://pin.it/5VR8RBD31"
+target="_blank">Pinterest</a>
+
+<a class="social-btn"
+href="https://www.instagram.com/guddu.seikh_official"
+target="_blank">Instagram</a>
+
+<a class="social-btn"
+href="https://www.youtube.com/@GudduKidsWorld-y2h"
+target="_blank">YouTube</a>
+
+<button class="head-btn" onclick="openAdmin()">⚙️</button>
+
+</div>
+
+</header>
+
+<nav class="nav">
+
+<a href="#" onclick="home()">Home</a>
+<a href="#shop">Shop</a>
+<a href="#categories">Categories</a>
+<a href="#trending">Trending</a>
+<a href="#deals">Deals</a>
+<a href="#about">About</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<small>GUDDU FINDS • AMAZON AFFILIATE</small>
+
+<h1>
+Find it.<br>
+Love it.<br>
+<span>Shop it.</span>
+</h1>
+
+<p>
+Discover useful, trending and interesting products from Amazon.
+Guddu Finds helps you discover products before you shop.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary"
+onclick="document.getElementById('shop').scrollIntoView()">
+Shop Finds
+</button>
+
+<button class="secondary"
+onclick="openAdmin()">
+Add Product
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="categories">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>Shop by Category</h2>
+<p>Explore our product collections</p>
+</div>
+
+</div>
+
+<div class="categories">
+
+<div class="category" onclick="filterCategory('Travel')">
+<div class="category-icon">✈️</div>
+<strong>Travel</strong>
+</div>
+
+<div class="category" onclick="filterCategory('Home & Kitchen')">
+<div class="category-icon">🏠</div>
+<strong>Home</strong>
+</div>
+
+<div class="category" onclick="filterCategory('Electronics')">
+<div class="category-icon">💻</div>
+<strong>Electronics</strong>
+</div>
+
+<div class="category" onclick="filterCategory('Bags & Fashion')">
+<div class="category-icon">👜</div>
+<strong>Fashion</strong>
+</div>
+
+<div class="category" onclick="filterCategory('Kids')">
+<div class="category-icon">👶</div>
+<strong>Kids</strong>
+</div>
+
+<div class="category" onclick="filterCategory('Fitness')">
+<div class="category-icon">💪</div>
+<strong>Fitness</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="trending">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>🔥 Trending Finds</h2>
+<p>Popular products</p>
+</div>
+
+</div>
+
+<div class="products" id="trendingGrid"></div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="feature">
+
+<div>
+
+<h2>Smart shopping starts here.</h2>
+
+<p>
+Guddu Finds discovers interesting products,
+useful gadgets, travel essentials, home items
+and everyday finds available through Amazon.
+</p>
+
+<br>
+
+<button class="primary"
+onclick="document.getElementById('shop').scrollIntoView()">
+Explore Products
+</button>
+
+</div>
+
+<div class="feature-product">
+🛍️
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="deals">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>💰 Deals & Finds</h2>
+<p>Products worth checking out</p>
+</div>
+
+</div>
+
+<div class="deal">
+
+<div>
+<h2>Discover your next favorite product.</h2>
+
+<p style="color:#666;margin-top:8px">
+Prices and availability may change on Amazon.
+</p>
+
+</div>
+
+<button class="primary"
+onclick="document.getElementById('shop').scrollIntoView()">
+Shop Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="shop">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<h2>All Amazon Finds</h2>
+<p id="productCount"></p>
+</div>
+
+<select
+onchange="sortProducts(this.value)"
+style="padding:10px;border:1px solid #ddd;border-radius:7px">
+
+<option value="default">Sort</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="name">Name</option>
+
+</select>
+
+</div>
+
+<div class="products" id="shopGrid"></div>
+
+</div>
+
+</section>
+
+
+<section class="newsletter">
+
+<h2>Get New Finds</h2>
+
+<p>Follow Guddu Finds for new products and content.</p>
+
+<div class="social-footer"
+style="justify-content:center">
+
+<a href="https://pin.it/5VR8RBD31" target="_blank">
+Pinterest
+</a>
+
+<a href="https://www.instagram.com/guddu.seikh_official" target="_blank">
+Instagram
+</a>
+
+<a href="https://www.youtube.com/@GudduKidsWorld-y2h" target="_blank">
+YouTube
+</a>
+
+</div>
+
+</section>
+
+
+<footer id="about">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>Guddu<span style="color:#ff9900">Finds</span></h3>
+
+<p>
+Amazon product discovery and affiliate marketing website.
+</p>
+
+</div>
+
+<div>
+
+<h3>Shop</h3>
+
+<a href="#shop">All Products</a>
+<a href="#trending">Trending</a>
+<a href="#deals">Deals</a>
+<a href="#categories">Categories</a>
+
+</div>
+
+<div>
+
+<h3>Social</h3>
+
+<a href="https://pin.it/5VR8RBD31" target="_blank">
+Pinterest
+</a>
+
+<a href="https://www.instagram.com/guddu.seikh_official" target="_blank">
+Instagram
+</a>
+
+<a href="https://www.youtube.com/@GudduKidsWorld-y2h" target="_blank">
+YouTube
+</a>
+
+</div>
+
+<div>
+
+<h3>Information</h3>
+
+<a href="#">About</a>
+<a href="#">Contact</a>
+<a href="#">Privacy</a>
+<a href="#">Affiliate Disclosure</a>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Guddu Finds. Affiliate disclosure: qualifying purchases may earn a commission.
+</div>
+
+</footer>
+
+
+<!-- ADMIN DRAWER -->
+
+<div class="overlay"
+id="overlay"
+onclick="closeAdmin()">
+</div>
+
+<div class="drawer" id="adminDrawer">
+
+<div class="drawer-head">
+
+<h2>Add Product</h2>
+
+<button class="close"
+onclick="closeAdmin()">×</button>
+
+</div>
+
+
+<div class="admin-title">
+<strong>Guddu <span>Finds</span></strong>
+<br>
+<small>Amazon Affiliate Product Manager</small>
+</div>
+
+
+<div class="form-grid">
+
+<div class="form-group full">
+<label>Product Name *</label>
+<input id="pName"
+placeholder="Example: Owala FreeSip Water Bottle">
+</div>
+
+
+<div class="form-group">
+<label>Brand</label>
+<input id="pBrand"
+placeholder="Brand name">
+</div>
+
+
+<div class="form-group">
+<label>Category *</label>
+
+<select id="pCategory">
+
+<option>Travel</option>
+<option>Home & Kitchen</option>
+<option>Electronics</option>
+<option>Bags & Fashion</option>
+<option>Kids</option>
+<option>Fitness</option>
+<option>Gaming</option>
+<option>Beauty</option>
+<option>Pet</option>
+<option>Office</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+<label>ASIN</label>
+<input id="pAsin"
+placeholder="B0XXXXXXXX">
+</div>
+
+
+<div class="form-group">
+<label>SKU / Internal ID</label>
+<input id="pSku"
+placeholder="GUD-000001">
+</div>
+
+
+<div class="form-group">
+<label>Amazon Price AED</label>
+<input id="pPrice"
+type="number"
+placeholder="99">
+</div>
+
+
+<div class="form-group">
+<label>Old Price AED</label>
+<input id="pOld"
+type="number"
+placeholder="129">
+</div>
+
+
+<div class="form-group">
+<label>Commission %</label>
+<input id="pCommission"
+type="number"
+placeholder="8">
+</div>
+
+
+<div class="form-group">
+<label>Rating</label>
+<input id="pRating"
+type="number"
+step="0.1"
+max="5"
+placeholder="4.7">
+</div>
+
+
+<div class="form-group full">
+<label>Amazon Product URL</label>
+<input id="pAmazon"
+placeholder="Paste Amazon product URL">
+</div>
+
+
+<div class="form-group full">
+<label>Your Amazon Affiliate URL *</label>
+<input id="pAffiliate"
+placeholder="Paste your tagged Amazon affiliate URL">
+</div>
+
+
+<div class="form-group full">
+<label>Product Image URL</label>
+<input id="pImage"
+placeholder="Paste product image URL">
+</div>
+
+
+<div class="form-group full">
+<label>Product Description</label>
+<textarea id="pDescription"
+placeholder="Write product description..."></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>Key Features</label>
+<textarea id="pFeatures"
+placeholder="Feature 1&#10;Feature 2&#10;Feature 3"></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>SEO Keywords</label>
+<textarea id="pKeywords"
+placeholder="Amazon UAE, best travel bag, travel bag UAE..."></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>Pinterest Title</label>
+<input id="pPinterestTitle"
+placeholder="Pinterest SEO title">
+</div>
+
+
+<div class="form-group full">
+<label>Pinterest Description</label>
+<textarea id="pPinterestDescription"
+placeholder="Pinterest description"></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>Pinterest Alt Text</label>
+<input id="pAlt"
+placeholder="Describe the product image">
+</div>
+
+
+<div class="form-group full">
+<label>Instagram Caption</label>
+<textarea id="pInstagram"
+placeholder="Instagram caption + CTA + hashtags"></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>YouTube Title</label>
+<input id="pYoutubeTitle"
+placeholder="YouTube Shorts title">
+</div>
+
+
+<div class="form-group full">
+<label>YouTube Description</label>
+<textarea id="pYoutube"
+placeholder="YouTube description"></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>TikTok Caption</label>
+<textarea id="pTiktok"
+placeholder="TikTok caption"></textarea>
+</div>
+
+
+<div class="form-group full">
+<label>Hashtags</label>
+<input id="pHashtags"
+placeholder="#AmazonFinds #UAE #GudduFinds">
+</div>
+
+
+<div class="form-group">
+<label>Status</label>
+
+<select id="pStatus">
+<option>Active</option>
+<option>Draft</option>
+<option>Scheduled</option>
+<option>Archived</option>
+</select>
+
+</div>
+
+
+<div class="form-group">
+<label>Badge</label>
+
+<select id="pBadge">
+<option>NEW</option>
+<option>BEST SELLER</option>
+<option>TRENDING</option>
+<option>DEAL</option>
+<option>POPULAR</option>
+<option>NONE</option>
+</select>
+
+</div>
+
+</div>
+
+
+<div class="checkbox-row">
+
+<label>
+<input type="checkbox" id="pFeatured">
+ Featured
+</label>
+
+<label>
+<input type="checkbox" id="pTrending">
+ Trending
+</label>
+
+<label>
+<input type="checkbox" id="pDeal">
+ Deal
+</label>
+
+</div>
+
+
+<div class="form-actions">
+
+<button
+class="secondary"
+onclick="closeAdmin()">
+Cancel
+</button>
+
+<button
+class="primary"
+onclick="saveProduct()">
+Save Product
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let products=[
+{
+name:"Premium Travel Backpack",
+brand:"Guddu Finds",
+category:"Travel",
+asin:"B0TRAVEL01",
+sku:"GUD-000001",
+price:129,
+old:169,
+commission:8,
+rating:4.7,
+image:"",
+description:"Premium travel backpack with laptop compartment and organized storage.",
+features:"Laptop compartment\nMultiple storage pockets\nTravel friendly",
+keywords:"travel backpack UAE, best travel backpack, Amazon UAE",
+affiliate:"https://www.amazon.ae/",
+amazon:"https://www.amazon.ae/",
+badge:"BEST SELLER",
+trending:true
+},
+{
+name:"Wireless Headphone Controller Stand",
+brand:"KDD",
+category:"Electronics",
+asin:"B0HEADSET01",
+sku:"GUD-000002",
+price:89,
+old:119,
+commission:7,
+rating:4.6,
+image:"",
+description:"Desktop headphone and controller stand for gamers.",
+features:"Headphone holder\nController stand\nUSB charging",
+keywords:"gaming accessories UAE, headphone stand",
+affiliate:"https://www.amazon.ae/",
+amazon:"https://www.amazon.ae/",
+badge:"TRENDING",
+trending:true
+}
+];
+
+
+function productHTML(p,index){
+
+let image=p.image
+? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">`
+: "🛍️";
+
+return `
+
+<div class="product">
+
+<div class="product-img">
+
+${p.badge && p.badge!=="NONE"
+? `<div class="badge ${p.badge==="DEAL"?"sale":""}">${escapeHTML(p.badge)}</div>`
+:""}
+
+<button class="wish"
+onclick="toggleWishlist(${index})">
+♡
+</button>
+
+${image}
+
+</div>
+
+<div class="product-body">
+
+<div class="stars">
+★★★★★
+<span style="color:#777">(${p.rating||5})</span>
+</div>
+
+<h3>${escapeHTML(p.name)}</h3>
+
+<p>${escapeHTML(p.description||"Discover this product on Amazon.")}</p>
+
+<div class="price">
+
+AED ${Number(p.price||0).toFixed(2)}
+
+${p.old
+? `<span class="old-price">AED ${Number(p.old).toFixed(2)}</span>`
+:""}
+
+</div>
+
+<button class="amazon"
+onclick="openAmazon(${index})">
+View on Amazon →
+</button>
+
+</div>
+
+</div>
+`;
+}
+
+
+function renderProducts(list=products){
+
+document.getElementById("shopGrid").innerHTML=
+list.map((p,i)=>productHTML(p,i)).join("");
+
+let trending=list.filter(p=>p.trending);
+
+if(!trending.length) trending=list;
+
+document.getElementById("trendingGrid").innerHTML=
+trending.slice(0,4).map((p)=>{
+let i=products.indexOf(p);
+return productHTML(p,i);
+}).join("");
+
+document.getElementById("productCount").textContent=
+"Showing "+list.length+" products";
+
+}
+
+
+function saveProduct(){
+
+let name=document.getElementById("pName").value.trim();
+
+let affiliate=document.getElementById("pAffiliate").value.trim();
+
+if(!name){
+alert("Please enter the product name.");
+return;
+}
+
+if(!affiliate){
+alert("Please enter your Amazon affiliate URL.");
+return;
+}
+
+let product={
+
+name:name,
+
+brand:document.getElementById("pBrand").value,
+
+category:document.getElementById("pCategory").value,
+
+asin:document.getElementById("pAsin").value,
+
+sku:document.getElementById("pSku").value,
+
+price:Number(document.getElementById("pPrice").value)||0,
+
+old:Number(document.getElementById("pOld").value)||0,
+
+commission:Number(document.getElementById("pCommission").value)||0,
+
+rating:Number(document.getElementById("pRating").value)||5,
+
+amazon:document.getElementById("pAmazon").value,
+
+affiliate:affiliate,
+
+image:document.getElementById("pImage").value,
+
+description:document.getElementById("pDescription").value,
+
+features:document.getElementById("pFeatures").value,
+
+keywords:document.getElementById("pKeywords").value,
+
+pinterestTitle:document.getElementById("pPinterestTitle").value,
+
+pinterestDescription:document.getElementById("pPinterestDescription").value,
+
+alt:document.getElementById("pAlt").value,
+
+instagram:document.getElementById("pInstagram").value,
+
+youtubeTitle:document.getElementById("pYoutubeTitle").value,
+
+youtube:document.getElementById("pYoutube").value,
+
+tiktok:document.getElementById("pTiktok").value,
+
+hashtags:document.getElementById("pHashtags").value,
+
+status:document.getElementById("pStatus").value,
+
+badge:document.getElementById("pBadge").value,
+
+featured:document.getElementById("pFeatured").checked,
+
+trending:document.getElementById("pTrending").checked,
+
+deal:document.getElementById("pDeal").checked
+
+};
+
+products.unshift(product);
+
+localStorage.setItem(
+"gudduProducts",
+JSON.stringify(products)
+);
+
+renderProducts();
+
+closeAdmin();
+
+alert("Product saved successfully.");
+
+clearForm();
+
+}
+
+
+function clearForm(){
+
+document.querySelectorAll(
+"#adminDrawer input,#adminDrawer textarea"
+).forEach(el=>{
+
+if(el.type!=="checkbox"){
+el.value="";
+}else{
+el.checked=false;
+}
+
+});
+
+}
+
+
+function loadProducts(){
+
+let saved=localStorage.getItem("gudduProducts");
+
+if(saved){
+
+try{
+products=JSON.parse(saved);
+}catch(e){}
+
+}
+
+}
+
+
+function openAmazon(index){
+
+let link=products[index].affiliate ||
+products[index].amazon ||
+"https://www.amazon.ae/";
+
+window.open(link,"_blank");
+
+}
+
+
+function searchProducts(){
+
+let q=document
+.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let result=products.filter(p=>
+
+p.name.toLowerCase().includes(q) ||
+
+(p.brand||"").toLowerCase().includes(q) ||
+
+p.category.toLowerCase().includes(q) ||
+
+(p.keywords||"").toLowerCase().includes(q)
+
+);
+
+renderProducts(result);
+
+document
+.getElementById("shop")
+.scrollIntoView();
+
+}
+
+
+function filterCategory(category){
+
+let result=products.filter(
+p=>p.category===category
+);
+
+renderProducts(result);
+
+document
+.getElementById("shop")
+.scrollIntoView();
+
+}
+
+
+function sortProducts(type){
+
+let list=[...products];
+
+if(type==="low")
+list.sort((a,b)=>a.price-b.price);
+
+if(type==="high")
+list.sort((a,b)=>b.price-a.price);
+
+if(type==="name")
+list.sort((a,b)=>a.name.localeCompare(b.name));
+
+renderProducts(list);
+
+}
+
+
+function openAdmin(){
+
+document
+.getElementById("overlay")
+.classList.add("show");
+
+document
+.getElementById("adminDrawer")
+.classList.add("open");
+
+}
+
+
+function closeAdmin(){
+
+document
+.getElementById("overlay")
+.classList.remove("show");
+
+document
+.getElementById("adminDrawer")
+.classList.remove("open");
+
+}
+
+
+function toggleWishlist(index){
+
+let list=JSON.parse(
+localStorage.getItem("gudduWishlist")||"[]"
+);
+
+if(list.includes(index))
+list=list.filter(x=>x!==index);
+else
+list.push(index);
+
+localStorage.setItem(
+"gudduWishlist",
+JSON.stringify(list)
+);
+
+alert(
+list.includes(index)
+?"Added to wishlist."
+:"Removed from wishlist."
+);
+
+}
+
+
+function home(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function escapeHTML(value){
+
+return String(value||"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+loadProducts();
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
+```
 
